@@ -1,46 +1,4 @@
 '''
-Stage 1/3 
-Task: Print the source (raw) markdown code of the markdown snippet (can be found in images/task_1.png). 
-Show your understanding of the syntax basics. 
-'''
-
-print('''
-# John Lennon
-or ***John Winston Ono Lennon*** was one of *The Beatles.*
-
-Here are the songs he wrote I like the most:
-- Imagine
-- Norwegian Wood
-- Come Together
-- In My Life
-- ~~Hey Jude~~ (that was *McCartney*)
-''')
-
-'''
-# Stage 2/3
-Task: Ask a user for input: `Choose a formatter`:.
-
-- If the input contains one of the correct formatters (plain, bold, italic, etc.), ask for the input once again.
-- If the input contains no formatters or unknown command is sent, print the following message and ask for input again: `Unknown formatting type or command.`
-- If the input contains `!help`, print the list of available commands. 
-- If the input contains `!done`, exit the editor without saving.
-'''
-
-availiable_formatters = ["plain", "bold", "italic", "header", "link", "inline-code", "ordered-list", "unordered-list", "new-line"]
-
-while True:
-    formatter = str(input("Choose formatter:"))
-    if formatter in availiable_formatters:
-        continue
-    elif formatter == "!help":
-        print("Available formatters: plain bold italic header link inline-code ordered-list unordered-list new-line")
-        print("Special commands: !help !done")
-    elif formatter == "!done":
-        break
-    else:
-        print("Unknown formatting type or command")
-
-'''
 # Stage 3/3
 Task: Implement a separate function for each of the formatters.
 Apart from exiting the program, it should save the final result of a session to a file, let's call it output.md. 
@@ -50,9 +8,7 @@ Create this file in the program directory. If it already exists, overwrite this 
 prev_output = ""
 
 # functions for different types of formatters
-def text_markdown(formatter):
-
-    global prev_output
+def text_markdown(formatter, prev_output):
 
     text = str(input("Text:"))
     if formatter == "plain":
@@ -63,11 +19,11 @@ def text_markdown(formatter):
         prev_output = prev_output + "*" + text + "*"
     elif formatter == "inline-code":
         prev_output = prev_output + "`" + text + "`"
+    
+    return prev_output
 
 
-def header_markdown(formatter):
-
-    global prev_output
+def header_markdown(formatter, prev_output):
 
     level = int(input("Level:"))
 
@@ -77,23 +33,26 @@ def header_markdown(formatter):
     else:
         print("The level should be within the range of 1 to 6")
         header_markdown(formatter)
+    
+    return prev_output
 
-def link_markdown(formatter):
 
-    global prev_output
+def link_markdown(formatter, prev_output):
+
     label = str(input("Label:"))
     url = str(input("URL:"))
     prev_output = prev_output + "[" + label + "]" + "(" + url + ")"
 
-def new_line_markdown(formatter):
+    return prev_output
 
-    global prev_output 
+
+def new_line_markdown(formatter, prev_output):
 
     prev_output = prev_output + "\n"
+    return prev_output
 
-def list_markdown(formatter):
 
-    global prev_output
+def list_markdown(formatter, prev_output):
 
     rows = int(input("Number of rows:"))
 
@@ -113,21 +72,24 @@ def list_markdown(formatter):
         print("The number of rows should be greater than zero")
         list_markdown(formatter)
 
+    return prev_output
+
+
 # calling functions from inputs
 while True:
 
     formatter = str(input("Choose a formatter:"))
 
     if formatter in ["plain", "bold", "italic", "inline-code"]:
-        text_markdown(formatter)
+        prev_output = text_markdown(formatter, prev_output)
     elif formatter == "header":
-        header_markdown(formatter)
+        prev_output = header_markdown(formatter, prev_output)
     elif formatter == "link":
-        link_markdown(formatter)
+        prev_output = link_markdown(formatter, prev_output)
     elif formatter == "new-line":
-        new_line_markdown(formatter)
+        prev_output = new_line_markdown(formatter, prev_output)
     elif formatter == "ordered-list" or formatter == "unordered-list":
-        list_markdown(formatter)
+        prev_output = list_markdown(formatter, prev_output)
     elif formatter == "!done":
         break
     else:
