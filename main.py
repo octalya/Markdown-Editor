@@ -1,17 +1,11 @@
-'''
-# Stage 3/3
-Task: Implement a separate function for each of the formatters.
-Apart from exiting the program, it should save the final result of a session to a file, let's call it output.md. 
-Create this file in the program directory. If it already exists, overwrite this file. The file should include the result of the last session.
-'''
 import formatters
 prev_output = ""
 
 availiable_formatters = ["plain", "bold", "italic", "inline-code", "header", "link", "ordered-list", "unordered-list"]
 
 while True:
-
-    default_question = str(input("Choose a formatter (type a formatter of choice) or finish (type 'finish')?:"))
+    print("Choose one of the formatters: plain, bold, italic, inline-code, header, link, ordered-list, unordered-list")
+    default_question = str(input("Type a formatter of choice or type 'finish' (to exit a program and save the ouput):"))
     if default_question == "finish":
         break
     elif default_question in availiable_formatters:
