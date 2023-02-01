@@ -5,7 +5,7 @@ Markdown is a markup language with plain text formatting syntax. In this reposit
 
 ## Requirements
 
-- Python 3.10 
+- Python 3.10 or above
 
 
 ## Installation
