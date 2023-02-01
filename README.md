@@ -21,7 +21,7 @@ python main.py
 
 ## Usage
 
-To find out about the markdown syntax following [this guide](https://www.markdownguide.org/basic-syntax/)
+To find out about the markdown syntax follow [this guide](https://www.markdownguide.org/basic-syntax/)
 
 **Answer the default question:** *Type a formatter of choice or type 'finish' (to exit a program and save the ouput):*
 
