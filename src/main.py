@@ -1,4 +1,4 @@
-import formatters
+import src.utils.formatters as formatters
 
 def main():
     prev_output = ""
