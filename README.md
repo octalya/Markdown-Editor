@@ -16,7 +16,7 @@ In order to test the script please run the following commands:
 # clone the repository
 git clone https://github.com/octalya/Markdown-Editor
 # run main.py
-python main.py
+python src/main.py
 ```
 
 ## Usage
