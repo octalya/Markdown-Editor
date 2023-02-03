@@ -3,8 +3,6 @@ import formatters
 def main():
     prev_output = ""
 
-    available_formatters = ["plain", "bold", "italic", "inline-code", "header", "link", "ordered-list", "unordered-list"]
-
     while True:
         print("Choose one of the formatters: plain, bold, italic, inline-code, header, link, ordered-list, unordered-list")
         formatter = input("Type a formatter of choice or type 'finish' (to exit a program and save the output):")
