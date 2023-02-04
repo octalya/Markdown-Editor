@@ -50,8 +50,11 @@ def main():
                 break
             elif question == "append":
                 available_files = os.listdir("src/outputs")
-                print(f"Those are the available files in 'outputs' folder: {available_files}")
-                name = input("Type the name of an file from a given choice:")
+                name = None
+                while name not in available_files:
+                    print(f"Those are the available files in 'outputs' folder: {available_files}")
+                    name = input("Type the name of an file from a given choice:")
+                    name = name.split(".md")[0]
                 mode = "a"
                 break
             else:
