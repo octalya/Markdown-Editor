@@ -58,7 +58,7 @@ def main():
                 print("Unknown command. Please choose between 'new' and 'append'.")
 
     # saving output 
-    file = open(f'src/outputs/{name}.md', f'{mode}', encoding='utf-8')
+    file = open(f'src/outputs/{name}.md', mode, encoding='utf-8')
     file.writelines(prev_output)
     file.close()
 
