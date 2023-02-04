@@ -5,11 +5,11 @@ def text_markdown(formatter, prev_output):
     if formatter == "plain":
         prev_output+=text
     elif formatter == "bold":
-        prev_output = prev_output + "**" + text + "**"
+        prev_output = f'{prev_output}**{text}**'
     elif formatter == "italic":
-        prev_output = prev_output + "*" + text + "*"
+        prev_output = f'{prev_output}*{text}*'
     elif formatter == "inline-code":
-        prev_output = prev_output + "`" + text + "`"
+        prev_output = f'{prev_output}`{text}`'
     
     return prev_output
 
@@ -20,7 +20,8 @@ def header_markdown(formatter, prev_output):
 
     if level in range(1,7):
         text = str(input("Text:"))
-        prev_output = prev_output + level*"#" + " " + text + "\n"
+        hash_level = level*"#"
+        prev_output = f"{prev_output}{hash_level}{text}\n"
     else:
         print("The level should be within the range of 1 to 6")
         header_markdown(formatter)
@@ -32,14 +33,14 @@ def link_markdown(formatter, prev_output):
 
     label = str(input("Label:"))
     url = str(input("URL:"))
-    prev_output = prev_output + "[" + label + "]" + "(" + url + ")"
+    prev_output = f'{prev_output}[{label}]({url})'
 
     return prev_output
 
 
 def new_line_markdown(formatter, prev_output):
 
-    prev_output = prev_output + "\n"
+    prev_output = f'{prev_output}\n'
     return prev_output
 
 
@@ -52,12 +53,12 @@ def list_markdown(formatter, prev_output):
         if formatter == 'ordered-list':
             for i in range(1, rows+1):
                 text = str(input(f'Row #{i}:'))
-                prev_output = prev_output + f"{i}. {text}\n"
+                prev_output = f"{prev_output}{i}. {text}\n"
 
         else:
             for i in range(1, rows+1):
                 text = str(input(f'Row #{i}:'))
-                prev_output = prev_output + f"* {text}\n"
+                prev_output = prev_output + f"{prev_output}* {text}\n"
 
     else:
         print("The number of rows should be greater than zero")
