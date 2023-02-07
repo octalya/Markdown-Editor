@@ -39,11 +39,7 @@ To find out about the markdown syntax follow [this guide](https://www.markdowngu
 
 - to finish writing a text: type ***finish***
 
-**Save markdown-formatted string in the file**
- - if this is your first generated text using this program, you will need to answer question: *Type the name of an output file in a text format without spaces:* and type the name of the file that will be saved in `.md` format in *outputs* directory
-
- - otherwise, answer the other question: *Do you want to create a new file with a text or append to the existing one?* and type either ***append*** or ***new*** and follow further instructions for saving the outputs of the program
-
+**Save markdown-formatted string in the file:** program allows to create new files and edit old ones. All of th files can be found in *src/outputs* directory
 
 
 
