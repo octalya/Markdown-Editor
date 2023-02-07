@@ -23,7 +23,7 @@ python src/main.py
 
 To find out about the markdown syntax follow [this guide](https://www.markdownguide.org/basic-syntax/)
 
-**Answer the default question:** *Type a formatter of choice or type 'finish' (to exit a program and save the ouput):*
+**Answer the default question:** *Type a formatter of choice or type 'finish' (to exit a program and save the output):*
 
 - to write a text in a particular markdown style: type a formatter of choice from the given list:
 
@@ -36,10 +36,10 @@ To find out about the markdown syntax follow [this guide](https://www.markdowngu
     - ***unordered-list***
 
     then follow the instructions in following questions by typing the text you would like to be formatted and satisfying any other requirements for a particular formatter
-- to finish writing and save the outputs: type ***finish***
 
-After exiting the program, you can find your markdown-formatted string in *output.md* file.
+- to finish writing a text: type ***finish***
 
+**Save markdown-formatted string in the file:** program allows to create new files and edit old ones. All of th files can be found in *src/outputs* directory
 
 
 
